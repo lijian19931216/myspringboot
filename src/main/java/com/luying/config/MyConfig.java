@@ -82,7 +82,7 @@ public class MyConfig extends WebMvcConfigurerAdapter {
 		return registrationBean;
 	}
 
-	@Bean
+	/*@Bean
 	public EmbeddedServletContainerCustomizer embeddedServletContainerCustomizer() {
 		return new EmbeddedServletContainerCustomizer() {
 
@@ -92,6 +92,6 @@ public class MyConfig extends WebMvcConfigurerAdapter {
 				container.setPort(8083);
 			}
 		};
-	}
+	}*/
 
 }

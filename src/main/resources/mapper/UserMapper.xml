@@ -3,10 +3,7 @@
 <mapper namespace="com.luying.dao.UserDao" >
  
   <select id="selectUsers" resultType="user">
-      SELECT
-        *
-      FROM
-        user
+      select * from user
   </select>
 
 
