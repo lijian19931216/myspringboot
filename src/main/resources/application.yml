@@ -56,7 +56,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.luying.bean
+  type-aliases-package: com.luying.cache
 # config-location: classpath:mapper/xx.xml
 
 #pagehelper

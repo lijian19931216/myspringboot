@@ -1,21 +1,14 @@
 package com.luying.controller;
 
 
-import java.util.Collection;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-
-import com.luying.bean.Department;
-import com.luying.bean.Employee;
+import com.luying.cache.Employee;
 import com.luying.dao.DepartmentDao;
 import com.luying.dao.EmployeeDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class EmployeeController {
@@ -26,7 +19,7 @@ public class EmployeeController {
     DepartmentDao departmentDao;
 
     //查询所有员工返回列表页面
-    @GetMapping("/emps")
+   /* @GetMapping("/emps")
     public String  list(Model model){
         Collection<Employee> employees = employeeDao.getAll();
 
@@ -35,10 +28,10 @@ public class EmployeeController {
         // thymeleaf默认就会拼串
         // classpath:/templates/xxxx.html
         return "emp/list";
-    }
+    }*/
 
     //来到员工添加页面
-    @GetMapping("/emp")
+    /*@GetMapping("/emp")
     public String toAddPage(Model model){
         //来到添加页面,查出所有的部门，在页面显示
         Collection<Department> departments = departmentDao.getDepartments();
@@ -86,8 +79,24 @@ public class EmployeeController {
     public String deleteEmployee(@PathVariable("id") Integer id){
         employeeDao.delete(id);
         return "redirect:/emps";
+    }*/
+    @RequestMapping("hello545")
+    @ResponseBody
+    public String add(){
+        com.luying.cache.Employee employee = new com.luying.cache.Employee();
+        employee.setdId(1);
+        employee.setEmail("92822@qq.com");
+        employee.setGender(1);
+        employee.setLastName("张三");
+        employeeDao.insertEmp(employee);
+        return "djlksfjdl";
     }
-
+    @RequestMapping("hello888/{id}")
+    @ResponseBody
+    public Employee select(@PathVariable Integer id){
+        Employee emp = employeeDao.getEmpById(id);
+        return emp;
+    }
 
 
 }
