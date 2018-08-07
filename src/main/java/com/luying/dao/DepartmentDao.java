@@ -1,13 +1,12 @@
 package com.luying.dao;
 
 
+import com.luying.bean.Department;
+import org.springframework.stereotype.Repository;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.springframework.stereotype.Repository;
-
-import com.luying.bean.Department;
 
 @Repository
 public class DepartmentDao {
@@ -31,5 +30,6 @@ public class DepartmentDao {
 	public Department getDepartment(Integer id){
 		return departments.get(id);
 	}
-	
+
+
 }

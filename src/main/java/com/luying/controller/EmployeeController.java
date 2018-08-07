@@ -4,6 +4,7 @@ package com.luying.controller;
 import com.luying.cache.Employee;
 import com.luying.dao.DepartmentDao;
 import com.luying.dao.EmployeeDao;
+import com.luying.service.impl.EmpServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -91,12 +92,25 @@ public class EmployeeController {
         employeeDao.insertEmp(employee);
         return "djlksfjdl";
     }
-    @RequestMapping("hello888/{id}")
+    /*@RequestMapping("hello888/{id}")
     @ResponseBody
     public Employee select(@PathVariable Integer id){
         Employee emp = employeeDao.getEmpById(id);
         return emp;
+    }*/
+    @Autowired
+    EmpServiceImpl empService;
+    @RequestMapping("hello777/{id}")
+    @ResponseBody
+    public Employee select(@PathVariable Integer id){
+        Employee emp = empService.getEmp(id);
+        return emp;
     }
-
+    @RequestMapping("hello777/update")
+    @ResponseBody
+    public Employee updateEmp(Employee emp){
+        empService.updateEmp(emp);
+        return emp;
+    }
 
 }

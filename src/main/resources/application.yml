@@ -53,12 +53,20 @@ spring:
           #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
           pool-prepared-statements: false
           max-pool-prepared-statement-per-connection-size: 20
+    redis:
+      host: 192.168.234.128
+      port: 6379
+      password: 123
+    rabbitmq:
+      addresses: 192.168.234.128
+      username: guest
+      password: guest
+#      port:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.luying.cache
 # config-location: classpath:mapper/xx.xml
-
 #pagehelper
 pagehelper:
     helperDialect: mysql
@@ -66,13 +74,13 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
     returnPageInfo: check
-
+logging:
+  level:
+    com.luying.dao: debug
+debug: true
 #users:
 #  name: 李剑
 #  sex: 男
-#logging:
-#  level:
-#    com.luying: trace
 #  file: F:/springboot.log
 #  pattern:
 #    console: "%d{yyyy‐MM‐dd} *%thread* ‐ %msg%n"

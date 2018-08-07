@@ -17,7 +17,7 @@
 
      update employee set lastName=#{lastName},
      gender=#{gender},email=#{email},
-     d_id=#{dId}
+     d_id=#{dId} where id=#{id}
     </update>
 
 
