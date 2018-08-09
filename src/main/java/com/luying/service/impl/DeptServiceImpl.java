@@ -20,5 +20,14 @@ public class DeptServiceImpl {
         Department dept=DepartmentMapper.getDeptById(id);
         return dept;
     }
+    /*@RabbitListener(queues = "atguigu.news")
+    public void rabbitListen(String s){
+        System.out.println("收到消息"+s);
+    }
+    @RabbitListener(queues = "atguigu.news")
+    public void getMsg(Message msg){
+        System.out.println(msg.getBody());
+        System.out.println(msg.getClass());
+    }*/
 
 }

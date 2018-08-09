@@ -57,10 +57,15 @@ spring:
       host: 192.168.234.128
       port: 6379
       password: 123
-    rabbitmq:
-      addresses: 192.168.234.128
-      username: guest
-      password: guest
+    mail:
+      username: 928229131@qq.com
+      password: bivmwcbukmagbcba
+      host: smtp.qq.com
+      properties: {mail.smtp.ssl.enable: true}
+#    rabbitmq:
+#      addresses: 192.168.234.128
+#      username: guest
+#      password: guest
 #      port:
 
 mybatis:
